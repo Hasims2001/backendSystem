@@ -20,7 +20,7 @@ app.post("/", async(req, res)=> {
         res.send({'msg': "category is required", 'issue': true })
     }
     else{
-        let prompt = `write the ${category} about the topic without adding extra explaination and symbols in ${language || "English"} language. Topic: ${searchInput}`;
+        let prompt = `act as you are expert in ${category} telling. write the ${category} about the topic without adding extra explaination and symbols in ${language || "English"} language. Topic: ${searchInput}`;
         const chatCompletion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [{ role: "user", content: prompt }],
